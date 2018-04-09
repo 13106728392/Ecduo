@@ -1,7 +1,6 @@
 <?php
 	
 	//先请求连接
-	
 	require('connect.php');
 	
 	

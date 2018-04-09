@@ -208,6 +208,7 @@ em {
 
 .header .logo_header .reasch_box {
   width: 645px;
+  position: relative;
   box-sizing: border-box;
   padding-top: 18px;
   height: 82px;
@@ -223,7 +224,9 @@ em {
 .header .logo_header .reasch_box .reasch_btn {
   margin-left: 5px;
   width: 96px;
-  height: 44px;
+  height: 45px;
+  top: 18px;
+  position: absolute;
   background: #D61E00;
   color: white;
   line-height: 41px;

@@ -544,6 +544,7 @@
                 a {
                     width: 260px;
                     float: right;
+                    color:gray;
                     margin-top: 30px;
                     font-size: 14px;
                     font-weight: bold;
@@ -582,5 +583,26 @@
             right: 2px;
         }
         
+    }
+}
+
+.fixboxs{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    background-color: gainsboro;
+    border-radius: 8px;
+    a{
+        display: block;
+        height: 50px;
+        font-size: 50px;
+        text-align: center;
+        border-radius: 8px;
+    }
+    a:hover{
+        background-color: brown;
+        color: white;
     }
 }

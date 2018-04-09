@@ -1,5 +1,557 @@
+@charset "UTF-8";
+/*css 初始化 */
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+img,
+input {
+  margin: 0;
+  padding: 0;
+  font-family: "宋体";
+}
+
+fieldset,
+img,
+input,
+button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline-style: none;
+}
+
+/*去掉input等聚焦时的蓝色边框*/
+ul,
+ol {
+  list-style: none;
+}
+
+/*input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}*/
+select,
+input {
+  vertical-align: middle;
+}
+
+/*select, input, textarea { font-size:12px; margin:0; }*/
+textarea {
+  resize: none;
+}
+
+/*防止拖动*/
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+/*  去掉图片低测默认的3像素空白缝隙，或者用display：block也可以*/
+table {
+  border-collapse: collapse;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* a{text-decoration:underline;} */
+/*添加公共样式*/
+/*body {
+    font:12px/150% Arial,Verdana,"\5b8b\4f53";
+    color:#666;
+    background:#fff
+}*/
+.clearfix::after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+  zoom: 1;
+}
+
+/*a {color:#666; text-decoration:none; }
+a:hover{color:#C81623;}*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 1em;
+}
+
+/*设置h标签的大小，设置跟父亲一样大的字体font-size:100%;*/
+s,
+i,
+em {
+  font-style: normal;
+  text-decoration: none;
+}
+
+/*公共类*/
+.container {
+  /*版心 提取 */
+  width: 1220px;
+  margin: 0 auto;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.al {
+  text-align: left;
+}
+
+.ac {
+  text-align: center;
+}
+
+.ar {
+  text-align: right;
+}
+
+.hide {
+  display: none;
+}
+
+.font12 {
+  font-size: 12px;
+}
+
+.font14 {
+  font-size: 14px;
+}
+
+.font16 {
+  font-size: 16px;
+}
+
 .main_content {
   height: 2271px;
-  width: 100%;
-  background-color: mediumspringgreen;
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 75px;
+}
+
+.main_content h2 {
+  color: #666666;
+  line-height: 45px;
+  font-size: 13px;
+}
+
+.main_content .left_choose1 {
+  width: 964px;
+  height: 93px;
+  border: 1px solid #EFEFEF;
+}
+
+.main_content .left_choose1 ul li {
+  height: 31px;
+}
+
+.main_content .left_choose1 ul li span {
+  display: inline-block;
+  width: 91px;
+  padding-left: 5px;
+  height: 31px;
+  line-height: 31px;
+  background-color: #DDDDDD;
+  margin-right: 20px;
+}
+
+.main_content .left_choose1 ul li a {
+  margin-right: 36px;
+  color: #817066;
+}
+
+.main_content .left_choose1 ul li a:hover {
+  color: red;
+}
+
+.main_content .left_choose1 ul li:nth-of-type(2) {
+  border-top: 1px dashed #DDDDDD;
+  border-bottom: 1px dashed #DDDDDD;
+}
+
+.main_content .left_choose2 {
+  height: 38px;
+  width: 964px;
+  border: 1px solid #DDDDDD;
+  margin-top: 20px;
+}
+
+.main_content .left_choose2 a {
+  float: left;
+  width: 75px;
+  height: 38px;
+  line-height: 38px;
+  font-size: 13px;
+  text-align: center;
+  color: #717171;
+  border-right: 1px solid #DDDDDD;
+}
+
+.main_content .left_choose2 a span {
+  display: inline-block;
+  margin-left: 5px;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top-color: #000000;
+}
+
+.main_content .left_choose2 a.active {
+  background-color: #DB4026;
+  color: white;
+}
+
+.main_content .left_choose2 a:hover {
+  background-color: #DB4026;
+  color: white;
+}
+
+.main_content .left_choose2 h3 {
+  color: gray;
+  text-align: center;
+  line-height: 38px;
+}
+
+.main_content .left_choose2 h3 select {
+  width: 78px;
+  border: 1px solid gray;
+  margin-left: 15px;
+}
+
+.main_content .contents_goods {
+  margin-top: 20px;
+  height: 2030px;
+  position: relative;
+  width: 968px;
+}
+
+.main_content .contents_goods ul li {
+  float: left;
+  position: relative;
+  width: 234px;
+  height: 350px;
+  border: 1px solid #EFEFEF;
+  margin-right: 6px;
+  margin-bottom: 38px;
+}
+
+.main_content .contents_goods ul li img {
+  width: 234px;
+}
+
+.main_content .contents_goods ul li .sales_pic {
+  display: block;
+  width: 57px;
+  height: 16px;
+  background-image: url(../img/salsepic.png);
+}
+
+.main_content .contents_goods ul li h3 {
+  font-size: 7px;
+  float: left;
+  line-height: 17px;
+  color: red;
+  margin-left: 10px;
+}
+
+.main_content .contents_goods ul li h3 span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.main_content .contents_goods ul li h4 {
+  float: right;
+  font-size: 12px;
+  color: gray;
+  margin-right: 10px;
+}
+
+.main_content .contents_goods ul li p {
+  float: left;
+  margin-left: 10px;
+  line-height: 19px;
+  margin-top: 10px;
+}
+
+.main_content .contents_goods ul li p a {
+  color: #646464;
+}
+
+.main_content .contents_goods ul li p a:hover {
+  color: red;
+}
+
+.main_content .contents_goods ul li h5 {
+  position: absolute;
+  width: 224px;
+  margin-left: 10px;
+  bottom: 14px;
+}
+
+.main_content .contents_goods ul li h5 a {
+  text-decoration: underline;
+  color: #666666;
+}
+
+.main_content .contents_goods ul li h5 a:hover {
+  color: #2964BB;
+}
+
+.main_content .contents_goods ul li h5 img {
+  width: 40px;
+  height: 15px;
+  float: right;
+}
+
+.main_content .contents_goods ul li:hover {
+  border: 1px solid red;
+}
+
+.main_content .contents_goods .contents_goods_bottom {
+  height: 34px;
+  bottom: 30px;
+  left: 50%;
+  line-height: 34px;
+  text-align: center;
+  transform: translatex(-50%);
+  position: absolute;
+}
+
+.main_content .contents_goods .contents_goods_bottom ul li {
+  float: left;
+  width: 32px;
+  height: 32px;
+}
+
+.main_content .contents_goods .contents_goods_bottom ul li a {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+
+.main_content .contents_goods .contents_goods_bottom ul li a.active {
+  background-color: red;
+  color: white;
+}
+
+.main_content .right_goods {
+  position: absolute;
+  width: 246px;
+  top: 45px;
+  right: 0;
+  height: 2225px;
+  border: 1px solid #E8E8E8;
+}
+
+.main_content .right_goods h3 {
+  line-height: 40px;
+  background-color: #F2F2F2;
+  color: #9D9D9D;
+  font-size: 12px;
+  padding-left: 20px;
+}
+
+.main_content .right_goods ul li {
+  position: relative;
+  width: 234px;
+  height: 350px;
+  border: 1px solid #EFEFEF;
+  margin-left: 5px;
+  margin-bottom: 2px;
+}
+
+.main_content .right_goods ul li img {
+  width: 234px;
+}
+
+.main_content .right_goods ul li .sales_pic {
+  display: block;
+  width: 57px;
+  height: 16px;
+  background-image: url(../img/salsepic.png);
+}
+
+.main_content .right_goods ul li h3 {
+  font-size: 7px;
+  float: left;
+  line-height: 17px;
+  color: red;
+  margin-left: 10px;
+}
+
+.main_content .right_goods ul li h3 span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.main_content .right_goods ul li h4 {
+  float: right;
+  font-size: 12px;
+  color: gray;
+  margin-right: 10px;
+}
+
+.main_content .right_goods ul li p {
+  float: left;
+  margin-left: 10px;
+  line-height: 19px;
+  margin-top: 10px;
+}
+
+.main_content .right_goods ul li p a {
+  color: #646464;
+}
+
+.main_content .right_goods ul li p a:hover {
+  color: red;
+}
+
+.main_content .right_goods ul li h5 {
+  position: absolute;
+  width: 224px;
+  margin-left: 10px;
+  bottom: 14px;
+}
+
+.main_content .right_goods ul li h5 a {
+  text-decoration: underline;
+  color: #666666;
+}
+
+.main_content .right_goods ul li h5 a:hover {
+  color: #2964BB;
+}
+
+.main_content .right_goods ul li h5 img {
+  width: 40px;
+  height: 15px;
+  float: right;
+}
+
+.main_content .right_goods ul li:hover {
+  border: 1px solid red;
+}
+
+.top_fixbox {
+  height: 38px;
+  width: 1220px;
+  left: 50%;
+  transform: translatex(-50%);
+  background-color: #DB4026;
+  position: fixed;
+  top: 0;
+}
+
+.top_fixbox ul li {
+  float: left;
+  position: relative;
+  width: 202px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  height: 38px;
+  font-size: 16px;
+  line-height: 38px;
+  border-right: 1px dashed gainsboro;
+}
+
+.top_fixbox ul li a {
+  display: inline-block;
+  color: white;
+  width: 203px;
+}
+
+.top_fixbox ul li div {
+  position: absolute;
+  display: none;
+  height: 230px;
+  width: 408px;
+  top: 38px;
+  left: 0;
+  box-sizing: border-box;
+  padding-left: 10px;
+  border: 2px solid  #DB4026;
+  border-top: 1px solid white;
+  background-color: white;
+}
+
+.top_fixbox ul li div a {
+  float: left;
+  width: 50px;
+  font-size: 11px;
+  color: gray;
+}
+
+.top_fixbox ul li div a:hover {
+  color: red;
+}
+
+.top_fixbox ul li:hover div {
+  display: block;
+}
+
+.top_fixbox ul li:hover {
+  background-color: white;
+}
+
+.top_fixbox ul li:hover > a {
+  color: red;
+}
+
+.top_fixbox ul li:last-of-type div {
+  left: -197px;
+}
+
+.fixboxs {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  background-color: gainsboro;
+  border-radius: 8px;
+}
+
+.fixboxs a {
+  display: block;
+  height: 50px;
+  font-size: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 8px;
+}
+
+.fixboxs a:hover {
+  background-color: brown;
+  color: white;
 }

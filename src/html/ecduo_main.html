@@ -1,34 +1,166 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="../css/base_headerfooter.css" />
-		<link rel="stylesheet" type="text/css" href="../css/ecduo_main.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/ecduo_main.css" />
 	</head>
+
 	<body>
-		
-		
+
 		<script src="../lib/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script >
-				jQuery(function($) {
-					
-				$('.EC_header').load('base_header.html ');
-				$('.EC_footer').load('base_footer.html');
-					
-					})
-		</script>
-			<!--头部-->
-			<header class="EC_header"></header>
-			
-				<div class="main_content  container"></div>
-			
-			
-			
-		
-			<!--尾部-->
+		<script src="../js/ecduo_main.js" type="text/javascript" charset="utf-8"></script>
+
+		<!--头部-->
+		<header class="EC_header"></header>
+		<div class="main_content container">
+			<h2>首页  >  时尚女装  >  上衣  >  T恤 </h2>
+
+			<div class="left_choose1 fl">
+				<ul>
+					<li class="address"><span>品牌：</span>
+						<a href="#">佛山市南海民鸿服装厂</a>
+						<a href="#">金丽都</a>
+						<a href="#">慕思雨女装</a>
+						<a href="#">广州恩黛服饰有限公司</a>
+						<a href="#">东莞港达制衣有限公司</a>
+						<a href="#">杭州熙萍服饰有限公司</a>
+					</li>
+					<li class="styles"><span>风格:</span>
+						<a href="#">甜美</a>
+						<a href="#">街头</a>
+						<a href="#">通勤</a>
+					</li>
+					<li class="prices"><span>价格区间:</span>
+						<a href="#">0-30元</a>
+						<a href="#">30-50元</a>
+						<a href="#">50-80元</a>
+						<a href="#">80元以上</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="left_choose2 fl">
+				<a href="#" class="active">综合排序</a>
+				<a href="#">销量<span></span></a>
+				<a href="#">新品<span></span></a>
+				<a href="#">价格<span></span></a>
+				<h3>代销方式：<select name="" id=""> 
+					<option value ="volvo">所有</option>
+					<option value ="volvo">一件代发</option>
+					<option value ="volvo">批发</option>
+				</select></h3>
+			</div>
+
+			<div class="contents_goods fl">
+				<ul>
+					<!--数据生成-->
+				</ul>
+				<div class="contents_goods_bottom">
+					<!--分页加载数据-->
+				</div>
+			</div>
+
+			<div class="right_goods fr">
+				<h3>新品热卖</h3>
+				<ul>
+					<!--<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>-->
+				</ul>
+
+			</div>
+
+		</div>
+
+		<!--尾部-->
 		<footer class="EC_footer"></footer>
 		
+		<div class="top_fixbox container">
+			<ul>
+				<li><a href="#">上衣</a>
+					<div>
+						<a href="#">上衣</a>
+						<a href="#">外套</a>
+						<a href="#">上衣</a>
+						<a href="#">外套</a>
+						<a href="#">上衣</a>
+						<a href="#">外套</a><a href="#">上衣</a>
+						<a href="#">外套</a><a href="#">上衣</a>
+						<a href="#">外套</a>
+					</div>		
+				</li>
+				<li><a href="#">裙子</a>	<div>
+						<a href="#">上衣</a>
+						<a href="#">外套</a>
+						<a href="#">上衣</a>
+						<a href="#">外套</a>
+						<a href="#">上衣</a>
+						<a href="#">外套</a><a href="#">上衣</a>
+						<a href="#">外套</a><a href="#">上衣</a>
+						<a href="#">外套</a>
+					</div>		</li>
+				<li><a href="#">针织毛衣</a>
+						<div>
+						<a href="#">上衣</a>
+						<a href="#">外套</a>
+						<a href="#">上衣</a>
+						<a href="#">外套</a>
+						<a href="#">上衣</a>
+						<a href="#">外套</a><a href="#">上衣</a>
+						<a href="#">外套</a><a href="#">上衣</a>
+						<a href="#">外套</a>
+					</div>		
+				</li>
+				<li><a href="#">裤子</a>
+						<div>
+						<a href="#">上衣</a>
+						<a href="#">外套</a>
+						<a href="#">上衣</a>
+						<a href="#">外套</a>
+						<a href="#">上衣</a>
+						<a href="#">外套</a><a href="#">上衣</a>
+						<a href="#">外套</a><a href="#">上衣</a>
+						<a href="#">外套</a>
+					</div>		
+				</li>
+				<li><a href="#">外套</a>
+						<div>
+						<a href="#">上衣</a>
+						<a href="#">外套</a>
+						<a href="#">上衣</a>
+						<a href="#">外套</a>
+						<a href="#">上衣</a>
+						<a href="#">外套</a><a href="#">上衣</a>
+						<a href="#">外套</a><a href="#">上衣</a>
+						<a href="#">外套</a>
+					</div>		
+				</li>
+				<li><a href="#">特色服装</a>
+						<div>
+						<a href="#">上衣</a>
+						<a href="#">外套</a>
+						<a href="#">上衣</a>
+						<a href="#">外套</a>
+						<a href="#">上衣</a>
+						<a href="#">外套</a><a href="#">上衣</a>
+						<a href="#">外套</a><a href="#">上衣</a>
+						<a href="#">外套</a>
+					</div>		
+				</li>
+			</ul>
+		</div>
+		
+		
+	
+		<div class="fixboxs">
+			<a href="#dasda">^</a>
+		</div>
 	</body>
+
 </html>
