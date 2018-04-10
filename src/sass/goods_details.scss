@@ -1,0 +1,526 @@
+@charset "UTF-8";
+
+/*css 初始化 */
+
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+img,
+input {
+    margin: 0;
+    padding: 0;
+    font-family: "宋体";
+}
+
+fieldset,
+img,
+input,
+button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+}
+
+
+/*去掉input等聚焦时的蓝色边框*/
+
+ul,
+ol {
+    list-style: none;
+}
+
+
+/*input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}*/
+
+select,
+input {
+    vertical-align: middle;
+}
+
+
+/*select, input, textarea { font-size:12px; margin:0; }*/
+
+textarea {
+    resize: none;
+}
+
+
+/*防止拖动*/
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+
+/*  去掉图片低测默认的3像素空白缝隙，或者用display：block也可以*/
+
+table {
+    border-collapse: collapse;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* a{text-decoration:underline;} */
+
+
+/*添加公共样式*/
+
+
+/*body {
+    font:12px/150% Arial,Verdana,"\5b8b\4f53";
+    color:#666;
+    background:#fff
+}*/
+
+.clearfix::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+    zoom: 1;
+}
+
+
+/*a {color:#666; text-decoration:none; }
+a:hover{color:#C81623;}*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 1em;
+}
+
+
+/*设置h标签的大小，设置跟父亲一样大的字体font-size:100%;*/
+
+s,
+i,
+em {
+    font-style: normal;
+    text-decoration: none;
+}
+
+
+/*公共类*/
+
+.container {
+    /*版心 提取 */
+    width: 1220px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.al {
+    text-align: left;
+}
+
+.ac {
+    text-align: center;
+}
+
+.ar {
+    text-align: right;
+}
+
+.hide {
+    display: none;
+}
+
+.font12 {
+    font-size: 12px;
+}
+
+.font14 {
+    font-size: 14px;
+}
+
+.font16 {
+    font-size: 16px;
+}
+
+//内容开始
+.top_details {
+    height: 16243px;
+    box-sizing: border-box;
+    //  border: 1px solid black;
+    .goods_new {
+        width: 995px;
+        height: 780px;
+        //      border: 1px solid black;
+        h3 {
+            line-height: 36px;
+            color: #A0A0A0;
+            a {
+                margin-left: 5px;
+                margin-right: 5px;
+                color: #A0A0A0;
+            }
+        }
+        .goods_titles {
+            height: 50px;
+            width: 995px;
+            //          background-color: forestgreen;
+            h2 {
+                font-size: 15px;
+                font-weight: bold;
+                line-height: 22px;
+            }
+        }
+        .goods_detail {
+            //          height: 570px;
+            width: 995px;
+            border: 1px solid #C3C3C3;
+            box-shadow: 0px 0px 5px #C3C3C3;
+            .good_zoom {
+                position: relative;
+                width: 450px;
+                height: 557px;
+                box-sizing: border-box;
+                padding: 11px 17px 0 11px;
+             
+                border-right: 1px solid darkgray;
+                .zoom_show {
+                    width: 420px;
+                    height: 420px;
+                    .magnifierBigBox {
+                        margin-left: 20px;
+                    }
+                }
+                .zoom_smallshow {
+                    height: 60px;
+                    width: 410px;
+                    margin: 0 auto;
+                    margin-top: 10px;
+                    li {
+                        float: left;
+                      
+                        margin-right: 20px;
+                        img {
+                            width: 60px;
+                        }
+                    }
+                    li.active{
+                        border: 1px solid red;
+                       
+                    }
+                }
+                h3 {
+                    position: absolute;
+                    bottom: 0;
+                    color: #666666;
+                    span {
+                        margin-left: 195px;
+                    }
+                }
+            }
+            .good_prices {
+                width: 545px;
+                h2 {
+                    height: 95px;
+                    line-height: 95px;
+                    background-color: #F31200;
+                    color: white;
+                    i {
+                        display: inline-block;
+                        width: 70px;
+                        float: left;
+                        height: 95px;
+                        background-color: #AA1800;
+                        font-size: 16px;
+                        text-align: center;
+                    }
+                    span {
+                        display: inline-block;
+                        margin-left: 30px;
+                        margin-right: 16px;
+                        font-size: 25px;
+                    }
+                    a {
+                        color: white;
+                    }
+                }
+                .taobao_new {
+                    height: 158px;
+                    width: 485px;
+                    margin: 0 auto;
+                    position: relative;
+                    border-bottom: 1px dashed gray;
+                    h3 {
+                        height: 38px;
+                        line-height: 38px;
+                        color: #666666;
+                        span {
+                            color: orangered;
+                            font-size: 13px;
+                        }
+                    }
+                    h4 {
+                        height: 30px;
+                        line-height: 30px;
+                        color: #A8A8A8;
+                        span {
+                            color: #FF7300;
+                            font-weight: bold;
+                        }
+                    }
+                    h5 {
+                        display: block;
+                        height: 34px;
+                        line-height: 34px;
+                        color: #A8A8A8;
+                        i {
+                            color: #000000;
+                        }
+                        span {
+                            display: inline-block;
+                            width: 40px;
+                            height: 25px;
+                            background-color: #E0E0E0;
+                            color: black;
+                            line-height: 25px;
+                            text-align: center;
+                            margin-left: 15px;
+                        }
+                    }
+                    a {
+                        position: absolute;
+                        height: 30px;
+                        width: 120px;
+                        line-height: 30px;
+                        font-size: 12px;
+                        color: white;
+                        text-align: center;
+                        top: 85px;
+                        right: 0;
+                        background-color: #FF7F14;
+                    }
+                }
+            }
+            .up_taobao {
+                height: 85px;
+                width: 485px;
+                box-sizing: border-box;
+                padding-left: 10px;
+                border-bottom: 1px dashed gray;
+                margin: 0 auto;
+                text-align: center;
+                a {
+                    margin-top: 30px;
+                    display: block;
+                    width: 100px;
+                    height: 28px;
+                    background-color: #E72001;
+                    float: left;
+                    line-height: 28px;
+                    color: white;
+                    margin-right: 10px;
+                }
+                a:nth-of-type(2) {
+                    background-color: #FF6833;
+                }
+                a:nth-of-type(3) {
+                    background-color: #FF6833;
+                }
+            }
+            .choose_size {
+                height: 215px;
+                box-sizing: border-box;
+                border-bottom: 1px solid #F0F0F0;
+                padding-left: 44px;
+                h3 {
+                    line-height: 48px;
+                    span {
+                        display: inline-block;
+                        width: 40px;
+                        height: 24px;
+                        line-height: 24px;
+                        text-align: center;
+                        background-color: white;
+                        color: black;
+                        border: 1px solid gray;
+                        margin-left: 32px;
+                    }
+                    span:hover {
+                        border: 2px solid #DB4026;
+                        width: 38px;
+                        height: 22px;
+                    }
+                }
+                .input_num {
+                    width: 396px;
+                    height: 162px;
+                    margin-left: 97px;
+                    color: #333333;
+                    ul {
+                        li {
+                            height: 36px;
+                            line-height: 36px;
+                            border-bottom: 1px dashed grey;
+                            font-size: 11px;
+                            position: relative;
+                            i {
+                                margin-left: 24px;
+                            }
+                            span {
+                                display: inline-block;
+                                width: 27px;
+                                height: 28px;
+                                background-color: #F8F8F8;
+                                line-height: 28px;
+                                border: 1px solid gray;
+                                text-align: center;
+                                font-size: 15px;
+                            }
+                            span:nth-of-type(1) {
+                                margin-left: 100px;
+                            }
+                            span:nth-of-type(2) {
+                                margin-left: 44px;
+                            }
+                            input {
+                                position: absolute;
+                                top: 3px;
+                                text-align: center;
+                                border-top: 1px solid gray;
+                                  border-bottom: 1px solid gray;
+                                width: 44px;
+                                height: 28px;
+                            }
+                        }
+                        li:nth-of-type(1) span:nth-of-type(1) {
+                            margin-left: 94px;
+                        }
+                    }
+                }
+            }
+            //添加商品的盒子
+            .buy_goods {
+                display: none;
+                ul {
+                    li {
+                        height: 53px;
+                        line-height: 53px;
+                        background-color: #F8F8F8;
+                          
+                        
+                        .fn_a{
+                            display: inline-block;
+                            width: 115px;
+                            border-right: 1px solid gray;
+                            font-size: 16px;
+                            font-weight: bold;
+                            text-align: center;
+                        }
+                        .fn_b{
+                            width: 74px;
+                            display: inline-block;
+                            border-right: 1px solid gray;
+                            text-align: center;
+                        }
+                        .fn_c{
+                            i{
+                                margin-left: 10px;
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+            //结账的盒子
+            .addto_car {
+                height: 108px;
+                border: 1px solid gainsboro;
+                h3 {
+                    line-height: 48px;
+                    height: 48px;
+                    padding-left: 20px;
+                    font-size: 14px;
+                    color: #D61E00;
+                    span {
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+                }
+                input {
+                    height: 50px;
+                    width: 187px;
+                    margin-left: 15px;
+                    border-radius: 6px;
+                    background-color: #FDF1EE;
+                    color: #B91A00;
+                    font-size: 16px;
+                }
+                input:nth-of-type(1) {
+                    margin-left: 148px;
+                    background-color: #E52019;
+                    color: white;
+                }
+            }
+        }
+    }
+    
+    //右边的地址盒子
+    .goods_address{
+        width: 215px;
+        height: 580px;
+        margin-top: 85px;
+        border: 1px solid black;
+        
+        h3{
+            line-height: 30px;
+            padding-left: 25px;
+            background-color: #F8F8F8;
+        }
+        h2{
+            line-height: 40px;
+            padding-left: 20px;
+        }
+        img{
+            margin-top: 20px;
+        }
+    }
+    
+    
+    
+    
+    
+}

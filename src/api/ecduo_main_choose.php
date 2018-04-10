@@ -49,7 +49,6 @@
 	
 	
 	
-	
 	//获得数据
 	$result = $conn->query($sql);
 	$row = $result->fetch_all(MYSQLI_ASSOC);

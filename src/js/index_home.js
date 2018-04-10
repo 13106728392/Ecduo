@@ -1,3 +1,24 @@
+// 配置参数
+require.config({
+	// baseUrl:'lib',
+
+	// 配置别名（虚拟路径）
+	paths:{
+		// 格式：别名:真实路径（基于baseUrl）
+		jquery:'../lib/jquery-3.2.1',
+		cars:'../lib/ft-carousel.min'
+	},
+
+	// 配置依赖
+	shim:{
+		cars:['jquery']
+	}
+})
+
+
+
+require(['jquery','cars'],function($){
+	
 jQuery(function($) {
 	//加载头部
 	$('.EC_header').load('html/base_header.html');
@@ -54,16 +75,16 @@ jQuery(function($) {
 
 			let datas = JSON.parse(data);
 			$every_goods.map(function(idx, item) {
-				console.log(item)
+				console.log(item.id)
 
 				let ul1 = item.children[2].children[0];
-				console.log(ul1);
+					
 				item.children[0].children[0].innerHTML = `${idx+1}F`;
 				item.children[3].src = `img/goodsl${idx+1}.jpg`;
 				item.children[4].src = `img/goodsl${idx+1}${idx+1}.jpg`;
 				for(let i = 0; i < 8; i++) {
 					console.log()
-					$(ul1).append(`<li><a href="#"><img src="${datas[i].imgurl}" /></a> 
+					$(ul1).append(`<li><a href="html/goods_details.html?id=${i+1}"><img src="${datas[i].imgurl}" /></a> 
 								<h3><a href="#">${datas[i].name}</a></h3>
 							<span>分销价</span>
 							<span class="salesprice">￥${datas[i].salesprice}</span></li>`);
@@ -86,3 +107,10 @@ jQuery(function($) {
 	
 
 })
+})
+
+
+
+
+
+
