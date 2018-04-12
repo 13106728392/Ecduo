@@ -60,14 +60,14 @@ require(['jquery', 'zoom', 'common'], function($) {
 					$taobao_new.children('h3').eq(1).children('span').text(item.salesprice);
 					$choose_size.children('h3').eq(0).children('span').text(item.color);
 					$goods_address.children('h2').text(item.address);
-					$input_num.children('ul').children('li').eq(0).children('i').eq(0).text(item.sizeXL);
-					$input_num.children('ul').children('li').eq(0).children('i').eq(1).text(item.price);
-					$input_num.children('ul').children('li').eq(1).children('i').eq(0).text(item.sizeL);
-					$input_num.children('ul').children('li').eq(1).children('i').eq(1).text(item.price);
-					$input_num.children('ul').children('li').eq(2).children('i').eq(0).text(item.sizeM);
-					$input_num.children('ul').children('li').eq(2).children('i').eq(1).text(item.price);
-					$input_num.children('ul').children('li').eq(3).children('i').eq(0).text(item.sizeS);
-					$input_num.children('ul').children('li').eq(3).children('i').eq(1).text(item.price);
+					$input_num.find('li').eq(0).children('i').eq(0).text(item.sizeXL);
+					$input_num.find('li').eq(0).children('i').eq(1).text(item.price);
+					$input_num.find('li').eq(1).children('i').eq(0).text(item.sizeL);
+					$input_num.find('li').eq(1).children('i').eq(1).text(item.price);
+					$input_num.find('li').eq(2).children('i').eq(0).text(item.sizeM);
+					$input_num.find('li').eq(2).children('i').eq(1).text(item.price);
+					$input_num.find('li').eq(3).children('i').eq(0).text(item.sizeS);
+					$input_num.find('li').eq(3).children('i').eq(1).text(item.price);
 				})
 			}
 		});
@@ -100,7 +100,7 @@ require(['jquery', 'zoom', 'common'], function($) {
 			let num = vals[0].value++;
 			allprice(idxs, num + 1);
 		})
-
+		var moneys;
 		//获得总数
 		function allprice(idxs, num) {
 
@@ -118,7 +118,7 @@ require(['jquery', 'zoom', 'common'], function($) {
 			$buy_goods.find('.fn_b').text(`(${total}件)`);
 			$buy_goods.find('.fn_c').children('i').eq(idxs).children('span').text(`${num}`);
 			let nums = $good_prices.children('h2').children('span').text();
-			let moneys = (total * nums).toFixed(2);
+			moneys = (total * nums).toFixed(2);
 			$addto_car.find('span').eq(1).text(moneys);
 		}
 
@@ -144,6 +144,7 @@ require(['jquery', 'zoom', 'common'], function($) {
 			let lnum = $buy_goods.find('.fn_c').children('i').eq(1).children('span').text();
 			let mnum = $buy_goods.find('.fn_c').children('i').eq(2).children('span').text();
 			let snum = $buy_goods.find('.fn_c').children('i').eq(3).children('span').text();
+			let colors = $choose_size.children('h3').eq(0).children('span').text();
 			let allnum = xlnum * 1 + lnum * 1 + mnum * 1 + snum * 1;
 
 			let guid = ids;
@@ -159,7 +160,6 @@ require(['jquery', 'zoom', 'common'], function($) {
 				let mys = JSON.parse(Cookie.get('goodslist'));
 				if(mys.length ==0){
 					return ;
-					console.log(555)
 				}
 				mys.some(function(item, del) {
 					if(item.guid == guid) {
@@ -179,6 +179,7 @@ require(['jquery', 'zoom', 'common'], function($) {
 				goodslist[idx].mnum = mnum;
 				goodslist[idx].lnum = lnum;
 				goodslist[idx].snum = snum;
+				goodslist[idx].money = moneys;
 				console.log('创建了')
 			} else {
 				if(allnum > 0) {
@@ -192,14 +193,17 @@ require(['jquery', 'zoom', 'common'], function($) {
 						lnum: lnum,
 						mnum: mnum,
 						snum: snum,
+						color:colors,
+						money:moneys,
 						qty: allnum
 					}
 				}
 				goodslist.push(goods);
 				console.log('新建的')
 			}
-		
-			Cookie.set('goodslist', JSON.stringify(goodslist));
+			var d = new Date();
+			d.setDate(d.getDate() + 1);
+			Cookie.set('goodslist', JSON.stringify(goodslist),d,'/');
 		}
 
 	})

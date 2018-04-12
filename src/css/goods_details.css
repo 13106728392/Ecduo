@@ -496,20 +496,30 @@ em {
   font-weight: bold;
 }
 
-.top_details .goods_new .goods_detail .addto_car input {
+.top_details .goods_new .goods_detail .addto_car #addcar {
+  display: inline-block;
   height: 50px;
   width: 187px;
+  line-height: 50px;
+  text-align: center;
   margin-left: 15px;
   border-radius: 6px;
-  background-color: #FDF1EE;
-  color: #B91A00;
+  background-color: #E52019;
+  color: white;
   font-size: 16px;
 }
 
-.top_details .goods_new .goods_detail .addto_car input:nth-of-type(1) {
+.top_details .goods_new .goods_detail .addto_car #addgoods {
+  display: inline-block;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  width: 187px;
+  border-radius: 6px;
   margin-left: 148px;
-  background-color: #E52019;
-  color: white;
+  background-color: #FDF1EE;
+  color: #B91A00;
+  font-size: 16px;
 }
 
 .top_details .goods_address {

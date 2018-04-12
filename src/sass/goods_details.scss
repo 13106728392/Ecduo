@@ -216,7 +216,6 @@ em {
                 height: 557px;
                 box-sizing: border-box;
                 padding: 11px 17px 0 11px;
-             
                 border-right: 1px solid darkgray;
                 .zoom_show {
                     width: 420px;
@@ -232,15 +231,13 @@ em {
                     margin-top: 10px;
                     li {
                         float: left;
-                      
                         margin-right: 20px;
                         img {
                             width: 60px;
                         }
                     }
-                    li.active{
+                    li.active {
                         border: 1px solid red;
-                       
                     }
                 }
                 h3 {
@@ -379,12 +376,11 @@ em {
                         border: 1px solid gray;
                         margin-left: 32px;
                     }
-                    span.active{
-                          border: 2px solid #DB4026;
+                    span.active {
+                        border: 2px solid #DB4026;
                         width: 38px;
                         height: 22px;
                     }
-                   
                 }
                 .input_num {
                     width: 396px;
@@ -422,7 +418,7 @@ em {
                                 top: 3px;
                                 text-align: center;
                                 border-top: 1px solid gray;
-                                  border-bottom: 1px solid gray;
+                                border-bottom: 1px solid gray;
                                 width: 44px;
                                 height: 28px;
                             }
@@ -441,9 +437,7 @@ em {
                         height: 53px;
                         line-height: 53px;
                         background-color: #F8F8F8;
-                          
-                        
-                        .fn_a{
+                        .fn_a {
                             display: inline-block;
                             width: 115px;
                             border-right: 1px solid gray;
@@ -451,14 +445,14 @@ em {
                             font-weight: bold;
                             text-align: center;
                         }
-                        .fn_b{
+                        .fn_b {
                             width: 74px;
                             display: inline-block;
                             border-right: 1px solid gray;
                             text-align: center;
                         }
-                        .fn_c{
-                            i{
+                        .fn_c {
+                            i {
                                 margin-left: 10px;
                                 margin-right: 10px;
                             }
@@ -481,67 +475,68 @@ em {
                         font-weight: bold;
                     }
                 }
-                input {
+                #addcar {
+                    display: inline-block;
                     height: 50px;
                     width: 187px;
+                    line-height: 50px;
+                    text-align: center;
                     margin-left: 15px;
                     border-radius: 6px;
+                    background-color: #E52019;
+                    color: white;
+                    font-size: 16px;
+                }
+                #addgoods {
+                    display: inline-block;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+                    width: 187px;
+                    border-radius: 6px;
+                    margin-left: 148px;
                     background-color: #FDF1EE;
                     color: #B91A00;
                     font-size: 16px;
                 }
-                input:nth-of-type(1) {
-                    margin-left: 148px;
-                    background-color: #E52019;
-                    color: white;
-                }
             }
         }
     }
-    
     //右边的地址盒子
-    .goods_address{
+    .goods_address {
         width: 215px;
         height: 580px;
         margin-top: 85px;
         border: 1px solid #EEEEEE;
-        
-        h3{
+        h3 {
             line-height: 30px;
             padding-left: 25px;
             background-color: #F8F8F8;
         }
-        h2{
+        h2 {
             line-height: 40px;
             padding-left: 20px;
             color: red;
             font-weight: bold;
         }
-        img{
+        img {
             margin-top: 20px;
         }
-        h4{
-            line-height:18px;
+        h4 {
+            line-height: 18px;
             padding-left: 20px;
             font-weight: bold;
         }
-        ul{
-            li{
+        ul {
+            li {
                 float: left;
                 text-align: center;
                 color: red;
                 margin: 0 5px;
-                img{
+                img {
                     width: 92px;
                 }
-               
-            } 
+            }
         }
-        
     }
-    
-    
-    
-    
-    
 }

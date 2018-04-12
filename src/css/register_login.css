@@ -151,6 +151,7 @@
 }
 
 .login_main .login_box {
+  position: relative;
   width: 312px;
   height: 263px;
   border: 1px solid #E9E9E9;
@@ -203,4 +204,20 @@
 .login_main .login_box span:nth-of-type(2) {
   float: right;
   margin-right: 20px;
+}
+
+.login_main .login_box h4 {
+  position: absolute;
+  width: 140px;
+  top: 55px;
+}
+
+.login_main .login_box h4.false {
+  background-color: #FFEBEB;
+  color: brown;
+}
+
+.login_main .login_box h4.success {
+  background-color: #71B83D;
+  width: 80px;
 }

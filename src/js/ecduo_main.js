@@ -21,6 +21,8 @@ require(['jquery'], function($) {
 		$('.EC_footer').load('base_footer.html');
 
 		let $contents_goods = $('.contents_goods');
+		//加载页面的切换page
+		let $contents_goods_bottom = $('.contents_goods_bottom');
 
 		function createlis(datas) {
 			let $ul = $contents_goods.children('ul');
@@ -35,53 +37,50 @@ require(['jquery'], function($) {
 			}).join('');
 		}
 
-		function showothers() {
-			let $lis = $contents_goods_bottom.children('ul').children('li').children('a');
-			$contents_goods_bottom.on('click', 'a', function() {
-				$lis.map(function(idx, item) {
-					$(item).removeClass('active')
-				})
-				$(this).addClass('active');
-				let thisa = $(this).html();
-				$.ajax({
-					url: "../api/ecduo_main_choose.php",
-					data: {
-						'fisttime': 1,
-						'qty': 20,
-						'page': thisa
-					},
-					success: function(data) {
-						let res = JSON.parse(data);
-						createlis(res.data);
-					}
-				});
-			})
-		}
-		//加载页面的切换page
-		let $contents_goods_bottom = $('.contents_goods_bottom');
 		//加载页面商品的ajax
-		function createhhtml(fisttime) {
+
+		$.ajax({
+			url: "../api/ecduo_main_choose.php",
+			data: {
+				fisttime: 1,
+				qty: 20,
+				page: 1
+			},
+			success: function(data) {
+				let res = JSON.parse(data);
+				createlis(res.data);
+				$contents_goods_bottom.html('');
+				$contents_goods_bottom.append('<ul/>');
+				let len = res.total / res.data.length
+				for(let i = 0; i < len; i++) {
+					$contents_goods_bottom.children('ul').append(`<li><a href="#" class="ass">${i+1}</a></li>`);
+				}
+			}
+		});
+
+		let ss = document.getElementsByClassName('ass');
+		let firstss = ss[0];
+		console.log(firstss)
+		//page标签切换
+		$contents_goods_bottom.on('click', 'a', function() {
+			for(var i = 0; i < ss.length; i++) {
+				$(ss[i]).removeClass('active');
+			}
+			$(this).addClass('active');
+			let thisa = $(this).html(); 
 			$.ajax({
 				url: "../api/ecduo_main_choose.php",
 				data: {
-					fisttime: `${fisttime}`,
-					qty: 20,
-					page: 1
+					'fisttime': 1,
+					'qty': 20,
+					'page': thisa
 				},
 				success: function(data) {
 					let res = JSON.parse(data);
 					createlis(res.data);
-					$contents_goods_bottom.html('');
-					$contents_goods_bottom.append('<ul/>');
-					let len = res.total / res.data.length
-					for(let i = 0; i < len; i++) {
-						$contents_goods_bottom.children('ul').append(`<li><a href="#">${i+1}</a></li>`);
-					}
 				}
 			});
-		}
-		createhhtml(1);
-		showothers();
+		})   
 
 		//右边的ajax加载，这里的商品是不变的
 		let $right_goods = $('.right_goods');
@@ -239,7 +238,6 @@ require(['jquery'], function($) {
 			}, 1000);
 		})
 
-		
 	})
 
 })

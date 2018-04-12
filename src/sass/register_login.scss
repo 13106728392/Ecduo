@@ -134,10 +134,12 @@
         margin-top: 30px;
     }
     .login_box {
+        position: relative;
         width: 312px;
         height: 263px;
         border: 1px solid #E9E9E9;
         margin-top: 30px;
+        
         padding-left: 20px;
         box-sizing: border-box;
         margin-right: 100px;
@@ -179,6 +181,19 @@
         span:nth-of-type(2) {
             float: right;
             margin-right: 20px;
+        }
+        h4{
+            position: absolute;
+            width: 140px;
+            top:55px;
+        }
+        h4.false{
+             background-color: #FFEBEB;
+             color: brown;
+        }
+        h4.success{
+             background-color: #71B83D;
+             width: 80px;
         }
     }
 }

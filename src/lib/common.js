@@ -382,8 +382,6 @@ function type(data){
 
 
 
-
-
 // randomColor();//rgb(225,225,88)
 
 // var laoxie = {

@@ -130,7 +130,7 @@ require(['jquery', 'common'], function($) {
 					success: function(data) {
 						if(data == 'success') {
 							alert('注册成功');
-							location.href ='login.html';
+							location.href = 'login.html';
 						} else {
 							alert('注册失败')
 						}
@@ -141,30 +141,6 @@ require(['jquery', 'common'], function($) {
 			}
 
 		})
-		
-		
-		
-		
-		
-		//********************登录页面*******************************
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
 	})
 
