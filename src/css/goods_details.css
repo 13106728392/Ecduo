@@ -389,7 +389,7 @@ em {
   margin-left: 32px;
 }
 
-.top_details .goods_new .goods_detail .choose_size h3 span:hover {
+.top_details .goods_new .goods_detail .choose_size h3 span.active {
   border: 2px solid #DB4026;
   width: 38px;
   height: 22px;
@@ -516,7 +516,7 @@ em {
   width: 215px;
   height: 580px;
   margin-top: 85px;
-  border: 1px solid black;
+  border: 1px solid #EEEEEE;
 }
 
 .top_details .goods_address h3 {
@@ -528,8 +528,27 @@ em {
 .top_details .goods_address h2 {
   line-height: 40px;
   padding-left: 20px;
+  color: red;
+  font-weight: bold;
 }
 
 .top_details .goods_address img {
   margin-top: 20px;
+}
+
+.top_details .goods_address h4 {
+  line-height: 18px;
+  padding-left: 20px;
+  font-weight: bold;
+}
+
+.top_details .goods_address ul li {
+  float: left;
+  text-align: center;
+  color: red;
+  margin: 0 5px;
+}
+
+.top_details .goods_address ul li img {
+  width: 92px;
 }

@@ -1,0 +1,184 @@
+.registers {
+    height: 32px;
+}
+
+.register_main {
+    height: 546px;
+    position: relative;
+    h1 {
+        line-height: 134px;
+        padding-left: 110px;
+    }
+    .register_box {
+        width: 1000px;
+        height: 410px;
+        margin: 0 auto;
+        h2 {
+            height: 37px;
+            line-height: 37px;
+            border-bottom: 2px solid #E6E6E6;
+            text-align: center;
+            position: relative;
+            span {
+                width: 235px;
+                position: absolute;
+                font-size: 16px;
+                transform: translateX(-50%);
+                border-bottom: 4px solid #C40000;
+                i {
+                    display: inline-block;
+                    width: 25px;
+                    line-height: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    background-color: #C40000;
+                    color: white;
+                    margin-right: 30px;
+                }
+            }
+        }
+        .form_box {
+            width: 340px;
+            height: 324px;
+            position: relative;
+            margin: 48px auto;
+            label {
+                display: block;
+                height: 37px;
+                line-height: 37px;
+                margin-bottom: 20px;
+                padding-left: 20px;
+            }
+            input {
+                float: right;
+                height: 34px;
+                width: 260px;
+                border: 1px solid grey;
+            }
+            input.success {
+                background-color: #71B83D;
+            }
+            input.flase {
+                background-color: #FFEBEB;
+            }
+            label:nth-of-type(4) input {
+                width: 120px;
+                text-align: center;
+            }
+            a {
+                display: block;
+                position: absolute;
+                width: 302px;
+                height: 39px;
+                background-color: #C40000;
+                line-height: 34px;
+                color: white;
+                font-size: 18px;
+                border-top-right-radius: 8px;
+                border-top-left-radius: 8px;
+                text-align: center;
+                bottom: 0;
+                left: 20px;
+            }
+            .runnum_box {
+                position: absolute;
+                width: 110px;
+                height: 37px;
+                border-radius: 8px;
+                background-color: #1CB7FD;
+                top: 170px;
+                left: 80px;
+                color: #323232;
+                font-size: 22px;
+                line-height: 37px;
+                text-align: center;
+            }
+        }
+        .tip_box {
+            position: absolute;
+            height: 324px;
+            bottom: 0;
+            right: 280px;
+            width: 150px;
+            p {
+                margin-bottom: 20px;
+                height: 37px;
+                line-height: 37px;
+            }
+            p.okthing {
+                color: #71B83D;
+            }
+            p.badthing {
+                background-color: #FFEBEB;
+                color: #FF0000;
+            }
+        }
+    }
+}
+
+.EC_footer {
+    .footer {
+        margin-top: 0;
+    }
+}
+
+//登录页的界面
+.login_main {
+    height: 535px;
+    box-sizing: border-box;
+    padding-left: 150px;
+    padding-top: 35px;
+    h2 {
+        display: inline-block;
+        padding-left: 100px;
+        margin-top: 30px;
+    }
+    .login_box {
+        width: 312px;
+        height: 263px;
+        border: 1px solid #E9E9E9;
+        margin-top: 30px;
+        padding-left: 20px;
+        box-sizing: border-box;
+        margin-right: 100px;
+        input {
+            width: 240px;
+            height: 33px;
+            margin: 15px auto;
+            background-color: #FAFFBD;
+        }
+        h3 {
+            height: 25px;
+            line-height: 25px;
+            position: relative;
+            padding-left: 20px;
+            padding-right: 20px;
+            input {
+                position: absolute;
+                display: inline-block;
+                left: 0;
+                top: -9px;
+                width: 15px;
+                height: 15px;
+            }
+            a {
+                float: right;
+            }
+        }
+        .login_btnss {
+            display: block;
+            width: 275px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #BF0101;
+            color: white;
+            margin-top: 7px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        span:nth-of-type(2) {
+            float: right;
+            margin-right: 20px;
+        }
+    }
+}

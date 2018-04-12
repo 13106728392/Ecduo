@@ -5,7 +5,8 @@ require.config({
 	paths: {
 		// 格式：别名:真实路径（基于baseUrl）
 		jquery: '../lib/jquery-3.2.1',
-		zoom: '../lib/zoom'
+		zoom: '../lib/zoom',
+		common: '../lib/common'
 	},
 
 	// 配置依赖
@@ -15,7 +16,7 @@ require.config({
 
 })
 
-require(['jquery', 'zoom'], function($) {
+require(['jquery', 'zoom', 'common'], function($) {
 	jQuery(function($) {
 		$('.EC_header').load('base_header.html ');
 		$('.EC_footer').load('base_footer.html');
@@ -30,6 +31,7 @@ require(['jquery', 'zoom'], function($) {
 		let $zoom_smallshow = $('.zoom_smallshow');
 		let $buy_goods = $('.buy_goods');
 		let $addto_car = $('.addto_car');
+		let $goods_address = $('.goods_address');
 
 		//截取地址栏
 		let location = window.location.search.substring(1).split('=');
@@ -57,6 +59,7 @@ require(['jquery', 'zoom'], function($) {
 					$buy_goods.find('.fn_a').text(item.color);
 					$taobao_new.children('h3').eq(1).children('span').text(item.salesprice);
 					$choose_size.children('h3').eq(0).children('span').text(item.color);
+					$goods_address.children('h2').text(item.address);
 					$input_num.children('ul').children('li').eq(0).children('i').eq(0).text(item.sizeXL);
 					$input_num.children('ul').children('li').eq(0).children('i').eq(1).text(item.price);
 					$input_num.children('ul').children('li').eq(1).children('i').eq(0).text(item.sizeL);
@@ -68,6 +71,11 @@ require(['jquery', 'zoom'], function($) {
 				})
 			}
 		});
+
+		$choose_size.children('h3').eq(0).children('span').on('click', function() {
+			$(this).toggleClass('active');
+		})
+
 		$zoom_smallshow.on('click', 'li', function() {
 			$(this).addClass('active').siblings('li').removeClass('active');
 			let imgsrc = $(this).children('img').attr('src');
@@ -95,7 +103,7 @@ require(['jquery', 'zoom'], function($) {
 
 		//获得总数
 		function allprice(idxs, num) {
-			console.log(idxs, num)
+
 			let $allinput = $input_num.find('input');
 			let total = 0;
 			$allinput.map(function(idx, item) {
@@ -112,6 +120,86 @@ require(['jquery', 'zoom'], function($) {
 			let nums = $good_prices.children('h2').children('span').text();
 			let moneys = (total * nums).toFixed(2);
 			$addto_car.find('span').eq(1).text(moneys);
+		}
+
+		let $addcar = $('#addcar');
+
+		$addcar.click(function() {
+			allcookie(ids);
+		})
+
+		//写入cookie的函数
+		function allcookie(ids) {
+			// 用于存放添加都购物车的商品信息
+			var goodslist = Cookie.get('goodslist') || [];
+			if(typeof goodslist === 'string') {
+				goodslist = JSON.parse(goodslist);
+			}
+			//获得当前页面的商品的名字
+			let goodsname = $goods_titles.children('h2').text();
+			let pic = $zoom_smallshow.find('img').eq(0).attr('src');
+			let price = $good_prices.children('h2').children('span').text();
+			//获得各种码数的数量
+			let xlnum = $buy_goods.find('.fn_c').children('i').eq(0).children('span').text();
+			let lnum = $buy_goods.find('.fn_c').children('i').eq(1).children('span').text();
+			let mnum = $buy_goods.find('.fn_c').children('i').eq(2).children('span').text();
+			let snum = $buy_goods.find('.fn_c').children('i').eq(3).children('span').text();
+			let allnum = xlnum * 1 + lnum * 1 + mnum * 1 + snum * 1;
+
+			let guid = ids;
+			var idx;
+
+			let has = goodslist.some(function(item, i) {
+				idx = i;
+				return item.guid == guid
+			})
+
+			//如果是添加的数量为0，就在cookie中删除   
+			if(allnum == 0) {
+				let mys = JSON.parse(Cookie.get('goodslist'));
+				if(mys.length ==0){
+					return ;
+					console.log(555)
+				}
+				mys.some(function(item, del) {
+					if(item.guid == guid) {
+						console.log(del+'del')
+						mys = mys.splice(del, 1);
+						console.log(mys)
+						Cookie.set('goodslist', JSON.stringify(mys));
+						console.log('删了')
+					}
+				})
+//				return;
+			}
+
+			if(has) {
+				goodslist[idx].qty = allnum;
+				goodslist[idx].xlnum = xlnum;
+				goodslist[idx].mnum = mnum;
+				goodslist[idx].lnum = lnum;
+				goodslist[idx].snum = snum;
+				console.log('创建了')
+			} else {
+				if(allnum > 0) {
+					//获得商品信息
+					var goods = {
+						guid: guid,
+						name: goodsname,
+						imgurl: pic,
+						price: price,
+						xlnum: xlnum,
+						lnum: lnum,
+						mnum: mnum,
+						snum: snum,
+						qty: allnum
+					}
+				}
+				goodslist.push(goods);
+				console.log('新建的')
+			}
+		
+			Cookie.set('goodslist', JSON.stringify(goodslist));
 		}
 
 	})
