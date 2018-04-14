@@ -62,7 +62,7 @@ require(['jquery', 'cars', 'common'], function($) {
 		for(let i = 0; i < ulpic.length; i++) {
 			$more_pic.children('ul').append('<li/>');
 			let $lis = $more_pic.children('ul').children('li');
-			$lis[i].innerHTML = `<div class="li_first"><img src="${ulpic[i]}"/></div><div class="li_sec"><h3>蚂蚁贷款</h3><a href="#">点击进入</a>	</div>`;
+			$lis[i].innerHTML = `<div class="li_first"><img src="${ulpic[i]}"/></div><div class="li_sec"><h3>蚂蚁贷款</h3><a href="../html/list.html">点击进入</a>	</div>`;
 		}
 
 		let $every_goods = $('.every_goods');
@@ -71,19 +71,15 @@ require(['jquery', 'cars', 'common'], function($) {
 		$.ajax({
 			url: "api/every_goods.php",
 			success: function(data) {
-
 				let datas = JSON.parse(data);
 				$every_goods.map(function(idx, item) {
-					console.log(item.id)
-
 					let ul1 = item.children[2].children[0];
-
 					item.children[0].children[0].innerHTML = `${idx+1}F`;
 					item.children[3].src = `img/goodsl${idx+1}.jpg`;
 					item.children[4].src = `img/goodsl${idx+1}${idx+1}.jpg`;
 					for(let i = 0; i < 8; i++) {
 						console.log()
-						$(ul1).append(`<li><a href="html/goods_details.html?id=${i+1}"><img src="${datas[i].imgurl}" /></a> 
+						$(ul1).append(`<li><a href="../html/goods.html?id=${i+1}"><img src="${datas[i].imgurl}" /></a> 
 								<h3><a href="#">${datas[i].name}</a></h3>
 							<span>分销价</span>
 							<span class="salesprice">￥${datas[i].salesprice}</span></li>`);
@@ -98,9 +94,10 @@ require(['jquery', 'cars', 'common'], function($) {
 				scrollTop: 0
 			}, 1000);
 		})
-		
-		
+
 		//获得不到元素
+		let please_btn;
+		let del_login;
 		hascookie();
 		//检查是否有cookie
 		function hascookie() {
@@ -109,12 +106,30 @@ require(['jquery', 'cars', 'common'], function($) {
 				return;
 			}
 			if(telcook.length > 0) {
+				setTimeout(() => {
+					let top_user = document.querySelector('#top_user');
+					please_btn = document.querySelector('#please_btn');
+					del_login = document.querySelector('#del_login');
 
-				var top_user = document.querySelector('#top_user');
-				console.log(top_user)
+					del_login.style.display = 'inline-block';
+					please_btn.style.display = 'none';
+
+					top_user.innerHTML = telcook;
+				}, 1000);
 			}
-
 		}
+
+		setTimeout(() => {
+		if(del_login == undefined) {
+				return;
+			} else {
+				del_login.onclick = () => {
+					Cookie.remove('tel', '/');
+					console.log(666)
+					$('.EC_header').load('html/base_header.html');
+				}
+			}
+		}, 1000)
 
 	})
 })

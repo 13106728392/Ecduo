@@ -22,14 +22,19 @@ require(['jquery', 'common'], function($) {
 		let $all_totails = $('.all_totails');
 		let $allnumber = $all_totails.find('span');
 		let $allpricess = $all_totails.find('i');
+		let $prices_num;
+		let $prices_all;
+		let $small2_box = $('.small2_box');
+		let $small2 = $small2_box.find('ul');
 
 		hascookies();
 		//判断有没有登陆
 		function hascookies() {
 			let telcook = Cookie.get('tel');
-			if(telcook.length === 0) {
+			if(telcook == undefined) {
+				console.log(555);
 				telcook = [];
-				alert('请先登陆账号');
+				alert('亲，您还没登陆账号哦(*￣︶￣)');
 				location.href = 'login.html';
 				return;
 			} else {
@@ -43,6 +48,7 @@ require(['jquery', 'common'], function($) {
 		})
 
 		createhtml();
+
 		var goodslist;
 		//根据cookie生成界面
 		function createhtml() {
@@ -71,6 +77,20 @@ require(['jquery', 'common'], function($) {
 							<a href="javascript:void(0);" class="prices_del"><img src="../img/ljt.png" /></a>
 						</li>`
 			}).join('');
+			$small2[0].innerHTML = '';
+			$small2[0].innerHTML = goodslist.map(function(item) {
+				return `<li>
+							<img src="../${item.imgurl}" />
+								<p>${item.name}</p>
+								<h5>已选均码</h5>
+								<h6>数量：<i>${item.qty}</i>件</h6>										
+								<span>￥${item.price}</span>
+								</li>`
+			}).join('');
+
+			$prices_num = $goodslist_box.find('.prices_num');
+			$prices_all = $goodslist_box.find('.prices_all');
+			allprices();
 		}
 
 		//减号
@@ -111,9 +131,8 @@ require(['jquery', 'common'], function($) {
 		let $checks = $('.checks');
 		$all_btn.on('click', function() {
 			$checks.prop('checked', this.checked);
-		})
-		let $prices_num = $goodslist_box.find('.prices_num');
-		let $prices_all = $goodslist_box.find('.prices_all')
+		});
+
 		//商品的总数的和总价格
 		function allprices() {
 			let nums = 0;
@@ -130,7 +149,8 @@ require(['jquery', 'common'], function($) {
 		}
 
 		let $prices_del = $('.prices_del');
-		$prices_del.on('click', function() {
+		$goodslist_box.on('click', '.prices_del', function() {
+
 			let lis = $(this).parent().attr('data-id');
 			modifycookie(lis)
 		})
@@ -139,23 +159,25 @@ require(['jquery', 'common'], function($) {
 		function modifycookie(lis) {
 			let goodslist = Cookie.get('goodslist');
 			if(goodslist.length === 0) {
+				createhtml();
+				allprices();
 				goodslist = [];
 				return;
 			} else {
 				goodslist = JSON.parse(goodslist);
 			}
-//			let newgoodlist = [];
+
 			goodslist.map(function(item, idx) {
 				if(item.guid == lis) {
-//					newgoodlist[idx] = item;
 					goodslist.splice(idx, 1);
 				}
 			})
-			Cookie.remove('goodslist');
-			var d = new Date();
-			d.setDate(d.getDate() + 1);
-			Cookie.set('goodslist', JSON.stringify(goodslist),d,'/');
+
+			goodslist = JSON.stringify(goodslist);
+			document.cookie = `goodslist=${goodslist};path=/`;
 			createhtml();
+			allprices();
+
 		}
 
 	})

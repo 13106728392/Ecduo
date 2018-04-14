@@ -18,6 +18,7 @@ require.config({
 
 require(['jquery', 'zoom', 'common'], function($) {
 	jQuery(function($) {
+		
 		$('.EC_header').load('base_header.html ');
 		$('.EC_footer').load('base_footer.html');
 
@@ -40,6 +41,7 @@ require(['jquery', 'zoom', 'common'], function($) {
 			datas.id = item;
 		})
 		let ids = datas.id;
+
 		$.ajax({
 			url: "../api/goods_details.php",
 			data: {
@@ -68,6 +70,7 @@ require(['jquery', 'zoom', 'common'], function($) {
 					$input_num.find('li').eq(2).children('i').eq(1).text(item.price);
 					$input_num.find('li').eq(3).children('i').eq(0).text(item.sizeS);
 					$input_num.find('li').eq(3).children('i').eq(1).text(item.price);
+					gettotails();
 				})
 			}
 		});
@@ -103,7 +106,6 @@ require(['jquery', 'zoom', 'common'], function($) {
 		var moneys;
 		//获得总数
 		function allprice(idxs, num) {
-
 			let $allinput = $input_num.find('input');
 			let total = 0;
 			$allinput.map(function(idx, item) {
@@ -122,11 +124,46 @@ require(['jquery', 'zoom', 'common'], function($) {
 			$addto_car.find('span').eq(1).text(moneys);
 		}
 
-		let $addcar = $('#addcar');
+		//首先得到现在的totails
+		function gettotails() {
+			let $allinput = $input_num.find('input');
+			let total = 0;
+			$allinput.map((idx, item) => {
+				total += item.value * 1;
+			});
+			let prices = $good_prices.children('h2').children('span').text();
+			$addto_car.find('span').eq(0).text(total);
+			$addto_car.find('span').eq(1).text((total * 1 * prices * 1).toFixed(2));
+			return total;
+		}
 
-		$addcar.click(function() {
-			allcookie(ids);
+		let $addcar = $('#addcar');
+		let $addgoods = $('#addgoods');
+		$addgoods.click(function() {
+			let total = gettotails();
+			if(total == 0) {
+				alert('请选择商品添加')
+				return;
+			} else {
+				allcookie(ids);
+			
+			}
 		})
+		
+		
+		
+		$addcar.click(function() {
+			let total = gettotails();
+			if(total == 0) {
+				alert('请选择商品添加')
+				return;
+			} else {
+				allcookie(ids);
+				window.location.href="car.html";
+			}
+		})
+
+		
 
 		//写入cookie的函数
 		function allcookie(ids) {
@@ -146,32 +183,14 @@ require(['jquery', 'zoom', 'common'], function($) {
 			let snum = $buy_goods.find('.fn_c').children('i').eq(3).children('span').text();
 			let colors = $choose_size.children('h3').eq(0).children('span').text();
 			let allnum = xlnum * 1 + lnum * 1 + mnum * 1 + snum * 1;
-
 			let guid = ids;
 			var idx;
 
 			let has = goodslist.some(function(item, i) {
 				idx = i;
+				console.log(idx)
 				return item.guid == guid
 			})
-
-			//如果是添加的数量为0，就在cookie中删除   
-			if(allnum == 0) {
-				let mys = JSON.parse(Cookie.get('goodslist'));
-				if(mys.length ==0){
-					return ;
-				}
-				mys.some(function(item, del) {
-					if(item.guid == guid) {
-						console.log(del+'del')
-						mys = mys.splice(del, 1);
-						console.log(mys)
-						Cookie.set('goodslist', JSON.stringify(mys));
-						console.log('删了')
-					}
-				})
-//				return;
-			}
 
 			if(has) {
 				goodslist[idx].qty = allnum;
@@ -193,19 +212,127 @@ require(['jquery', 'zoom', 'common'], function($) {
 						lnum: lnum,
 						mnum: mnum,
 						snum: snum,
-						color:colors,
-						money:moneys,
+						color: colors,
+						money: moneys,
 						qty: allnum
 					}
 				}
 				goodslist.push(goods);
 				console.log('新建的')
 			}
-			var d = new Date();
-			d.setDate(d.getDate() + 1);
-			Cookie.set('goodslist', JSON.stringify(goodslist),d,'/');
+			goodslist = JSON.stringify(goodslist);
+			document.cookie = `goodslist=${goodslist};path=/`;
 		}
 
-	})
+		//生成下面的大图片
+		let $other_pic = $('.other_pic');
+		let str = '';
+		for(var i = 1; i < 25; i++) {
+			str += `<li><img src="../img/details${i}.jpg"/></li>`
+		}
+		$other_pic.find('ul')[0].innerHTML = str;
 
+		//生成滚动图
+		let $ul_list = $('.ul_list');
+		let str2 = '';
+		for(var i = 1; i < 7; i++) {
+			str2 += `<li><img src="../img/goods${i}.jpg"/>
+						<p>航美2016秋冬新款中长款</p>
+						<input type="checkbox" class="small_checed"/>
+						分销价： ￥73.5</li>`;
+		}
+		let $ul_list_gun = $ul_list.find('ul');
+		$ul_list_gun[0].innerHTML = str2;
+
+		let lefts = 0;
+		let $span_l = $('.span_l');
+		let $span_r = $('.span_r');
+		$span_l.click(() => {
+			$ul_list_gun.stop(true).animate({
+				left: -170
+			}, () => {
+				lefts = 170;
+			})
+			if(lefts == 170) {
+				$ul_list_gun.stop(true).animate({
+					left: 0
+				}, () => {
+					lefts = 0;
+				})
+			}
+		})
+
+		$span_r.click(() => {
+			if(lefts == 0) {
+				$ul_list_gun.stop(true).animate({
+					left: -170
+				}, () => {
+					lefts = 170;
+				})
+			}
+			if(lefts == 170) {
+				$ul_list_gun.stop(true).animate({
+					left: 0
+				}, () => {
+					lefts = 0;
+				})
+			}
+		})
+
+		//全选
+		let $all_btns = $('#all_btns');
+		let $small_checed = $('.small_checed');
+		$all_btns.on('click', function() {
+			$small_checed.prop('checked', this.checked);
+		});
+
+		//顶部吸顶盒子
+		$(window).scroll(function() {
+			var h = $(this).scrollTop(); //获得滚动条距top的高度
+			if(h > 1340) {
+				$(".flat_top_box").fadeIn();
+			} else {
+				$(".flat_top_box").fadeOut();
+			}
+		});
+
+		//获得不到元素
+		let please_btn;
+		let del_login;
+		hascookie();
+		//检查是否有cookie
+		function hascookie() {
+			let telcook = Cookie.get('tel');
+			if(telcook == undefined) {
+				return;
+			}
+			if(telcook.length > 0) {
+				setTimeout(() => {
+					let top_user = document.querySelector('#top_user');
+					please_btn = document.querySelector('#please_btn');
+					del_login = document.querySelector('#del_login');
+					console.log(telcook)
+					del_login.style.display = 'inline-block';
+					please_btn.style.display = 'none';
+
+					top_user.innerHTML = telcook;
+				}, 1000);
+			}
+		}
+
+			setTimeout(() => {
+			if(del_login == undefined) {
+				return;
+			} else {
+				del_login.onclick = () => {
+					console.log(555)
+					Cookie.remove('tel', '/');
+					console.log(666)
+					$('.EC_header').load('base_header.html');
+				}
+			}
+
+		}, 1000)
+
+	})
 })

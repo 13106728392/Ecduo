@@ -177,6 +177,10 @@ em {
   color: red;
 }
 
+.header #del_login {
+  display: none;
+}
+
 .header .icon-fl-jia {
   display: inline-block;
   font-size: 20px;

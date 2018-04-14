@@ -154,7 +154,7 @@ em {
 }
 
 .top_details {
-  height: 16243px;
+  height: 26100px;
   box-sizing: border-box;
 }
 
@@ -480,6 +480,7 @@ em {
 
 .top_details .goods_new .goods_detail .addto_car {
   height: 108px;
+  position: relative;
   border: 1px solid gainsboro;
 }
 
@@ -497,12 +498,14 @@ em {
 }
 
 .top_details .goods_new .goods_detail .addto_car #addcar {
+  position: absolute;
   display: inline-block;
   height: 50px;
   width: 187px;
+  bottom: 10px;
+  right: 210px;
   line-height: 50px;
   text-align: center;
-  margin-left: 15px;
   border-radius: 6px;
   background-color: #E52019;
   color: white;
@@ -511,6 +514,9 @@ em {
 
 .top_details .goods_new .goods_detail .addto_car #addgoods {
   display: inline-block;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   height: 50px;
   text-align: center;
   line-height: 50px;
@@ -561,4 +567,193 @@ em {
 
 .top_details .goods_address ul li img {
   width: 92px;
+}
+
+.top_details .hot_goodss {
+  position: relative;
+  width: 1000px;
+  margin-top: 30px;
+  border-top: 3px solid #999999;
+  border-right: 1px solid darkgray;
+  border-left: 1px solid darkgray;
+  border-bottom: 1px solid darkgray;
+  height: 276px;
+  margin-bottom: 20px;
+}
+
+.top_details .hot_goodss span {
+  position: absolute;
+  top: -3px;
+  z-index: 99999;
+  display: block;
+  width: 98px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 18px;
+  background-color: white;
+  font-weight: bold;
+  border-right: 1px solid gray;
+  border-top: 3px solid #D61E00;
+}
+
+.top_details .hot_goodss .ul_box {
+  width: 1000px;
+  height: 243px;
+  position: relative;
+  border-top: 1px solid darkgray;
+  margin-top: 33px;
+}
+
+.top_details .hot_goodss .ul_box input {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+.top_details .hot_goodss .ul_box h2 {
+  line-height: 35px;
+  padding-left: 20px;
+}
+
+.top_details .hot_goodss .ul_box .ul_list {
+  width: 820px;
+  position: relative;
+  overflow: hidden;
+  height: 184px;
+  margin-left: 30px;
+}
+
+.top_details .hot_goodss .ul_box .ul_list span {
+  display: block;
+  position: absolute;
+  width: 30px;
+  background-color: #737172;
+  height: 60px;
+  border-top: none;
+  z-index: 5555;
+  top: 55px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 25px;
+  line-height: 60px;
+}
+
+.top_details .hot_goodss .ul_box .ul_list span:nth-of-type(2) {
+  right: 0;
+}
+
+.top_details .hot_goodss .ul_box .ul_list ul {
+  width: 1014px;
+  position: absolute;
+  height: 184px;
+}
+
+.top_details .hot_goodss .ul_box .ul_list ul li {
+  margin-right: 30px;
+  float: left;
+  width: 140px;
+  height: 182px;
+}
+
+.top_details .hot_goodss .ul_box .ul_list ul li img {
+  width: 140px;
+}
+
+.top_details .hot_goodss .ul_box .ul_list ul li p {
+  line-height: 28px;
+}
+
+.top_details .hot_goodss .ul_box .ul_list ul li:nth-of-type(6) {
+  margin-right: 0;
+}
+
+.top_details .suck_box {
+  width: 1000px;
+  height: 100px;
+  border: 1px solid darkgray;
+}
+
+.top_details .suck_box h2 {
+  line-height: 43px;
+  border-bottom: 1px solid darkgray;
+}
+
+.top_details .suck_box h2 span {
+  height: 43px;
+  background-color: #F8F8F8;
+  display: inline-block;
+  padding: 0 40px;
+  border-right: 1px solid darkgray;
+}
+
+.top_details .suck_box h2 span:nth-of-type(1) {
+  position: relative;
+  background-color: white;
+  color: red;
+  border-top: 2px solid red;
+}
+
+.top_details .suck_box h2 span:nth-of-type(1) i {
+  position: absolute;
+  top: 0;
+  left: 48%;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top-color: red;
+}
+
+.top_details .suck_box h3 {
+  line-height: 57px;
+  padding-left: 25px;
+}
+
+.top_details .frsss {
+  position: absolute;
+  top: 985px;
+  width: 210px;
+  height: 483px;
+  background-image: url(../img/frsss.png);
+}
+
+.top_details .flat_top_box {
+  height: 44px;
+  width: 1000px;
+  position: fixed;
+  margin-left: 220px;
+  line-height: 44px;
+  top: 0;
+  display: none;
+  background-color: white;
+  z-index: 56646;
+}
+
+.top_details .flat_top_box a {
+  float: left;
+  display: inline-block;
+  padding: 0 40px;
+  font-size: 18px;
+  background-color: #F8F8F8;
+  border-right: 1px solid darkgray;
+  font-weight: bold;
+}
+
+.top_details .flat_top_box span {
+  display: inline-block;
+  width: 170px;
+  height: 44px;
+  background-color: #D71E00;
+  color: white;
+  text-align: center;
+  float: right;
+}
+
+.top_details .flat_top_box span:nth-of-type(1) {
+  background-color: #FFE0DA;
+  color: #B91A00;
+}
+
+.top_details .other_pic {
+  width: 1000px;
 }

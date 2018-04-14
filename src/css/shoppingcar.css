@@ -195,6 +195,7 @@ em {
 
 .top_news .new_r ul li {
   float: left;
+  position: relative;
 }
 
 .top_news .new_r ul li a {
@@ -217,6 +218,138 @@ em {
 
 .top_news .new_r ul li a:hover {
   color: red;
+}
+
+.top_news .new_r ul li .small_box {
+  display: none;
+  border-bottom: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  border-left: 1px solid #CCCCCC;
+  top: 41px;
+  left: 0px;
+  z-index: 66666;
+  position: absolute;
+  text-align: center;
+  width: 148px;
+  background-color: white;
+}
+
+.top_news .new_r ul li .small_box img {
+  width: 148px;
+}
+
+.top_news .new_r ul li .small_box li {
+  display: block;
+  height: 41px;
+  width: 148px;
+}
+
+.top_news .new_r ul li .small_box li:hover {
+  background-color: #F2323B;
+}
+
+.top_news .new_r ul li .small2_box {
+  display: none;
+  z-index: 66666;
+  position: absolute;
+  border-bottom: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  border-left: 1px solid #CCCCCC;
+  width: 310px;
+  top: 41px;
+  left: 0px;
+  background-color: white;
+}
+
+.top_news .new_r ul li .small2_box h3 {
+  line-height: 44px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  color: #8C8C8C;
+}
+
+.top_news .new_r ul li .small2_box ul {
+  height: 350px;
+  overflow-x: hidden;
+}
+
+.top_news .new_r ul li .small2_box ul li {
+  height: 175px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 20px 24px 30px 24px;
+  border-bottom: 1px solid #ccc;
+}
+
+.top_news .new_r ul li .small2_box ul li img {
+  width: 80px;
+  float: left;
+  margin-right: 10px;
+}
+
+.top_news .new_r ul li .small2_box ul li p {
+  display: inline-block;
+  line-height: 25px;
+  width: 155px;
+  float: right;
+  color: gray;
+}
+
+.top_news .new_r ul li .small2_box ul li h5 {
+  float: right;
+  height: 24px;
+  margin-right: 120px;
+  color: gray;
+  line-height: 24px;
+}
+
+.top_news .new_r ul li .small2_box ul li h6 {
+  position: absolute;
+  display: block;
+  top: 135px;
+  height: 24px;
+  left: 110px;
+  line-height: 24px;
+}
+
+.top_news .new_r ul li .small2_box ul li span {
+  position: absolute;
+  display: block;
+  top: 135px;
+  height: 30px;
+  font-size: 18px;
+  color: black;
+  right: 20px;
+  line-height: 30px;
+}
+
+.top_news .new_r ul li .small2_box ul::-webkit-scrollbar {
+  display: none;
+}
+
+.top_news .new_r ul li .small2_box h4 {
+  height: 40px;
+  width: 250px;
+}
+
+.top_news .new_r ul li .small2_box h4 a {
+  display: inline-block;
+  width: 250px;
+  height: 40px;
+  text-align: center;
+  background-color: #F2323B;
+  line-height: 40px;
+  color: white;
+  font-size: 16px;
+  margin-left: 30px;
+}
+
+.top_news .new_r ul li:hover .small_box {
+  display: block;
+}
+
+.top_news .new_r ul li:hover .small2_box {
+  display: block;
 }
 
 .reasch_box {

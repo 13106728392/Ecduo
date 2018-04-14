@@ -6,6 +6,7 @@ require.config({
 	paths: {
 		// 格式：别名:真实路径（基于baseUrl）
 		jquery: '../lib/jquery-3.2.1',
+		common: '../lib/common'
 	},
 
 	// 配置依赖
@@ -14,7 +15,7 @@ require.config({
 	//	}
 })
 
-require(['jquery'], function($) {
+require(['jquery', 'common'], function($) {
 	//列表页
 	jQuery(function($) {
 		$('.EC_header').load('base_header.html ');
@@ -28,11 +29,11 @@ require(['jquery'], function($) {
 			let $ul = $contents_goods.children('ul');
 			$ul.html('');
 			$ul[0].innerHTML = datas.map(function(item) {
-				return `<li data-id=${item.id}><a href="goods_details.html?id=${item.id}"><img src="../${item.imgurl}"/></a>
+				return `<li data-id=${item.id}><a href="goods.html?id=${item.id}"><img src="../${item.imgurl}"/></a>
 					<span class="sales_pic"></span>
 					 	<h3>￥<span>${item.price}</span></h3>
 					 	<h4>建议零售价：￥ <span>${item.salesprice}</span></h4>
-					 	<p><a href="goods_details.html?id=${item.id}">${item.name}</a></p>
+					 	<p><a href="goods.html?id=${item.id}">${item.name}</a></p>
 					 	<h5><a href="#">瓦费熊</a> <img src="../img/bottompics1.png" alt="" /></h5></li>`
 			}).join('');
 		}
@@ -97,11 +98,11 @@ require(['jquery'], function($) {
 				$ul.html('');
 				for(let i = 0; i < datas.length; i++) {
 					$ul.append('<li/>');
-					$ul.children('li')[i].innerHTML = (`<a href="#"><img src="../${datas[i].imgurl}"/></a>
+					$ul.children('li')[i].innerHTML = (`<a href="goods.html?id=${datas[i].id}"><img src="../${datas[i].imgurl}"/></a>
 						<span class="sales_pic"></span>
 					 	<h3>￥<span>${datas[i].price}</span></h3>
 					 	<h4>建议零售价：￥ <span>${datas[i].salesprice}</span></h4>
-					 	<p><a href="#">${datas[i].name}</a></p>
+					 	<p><a href="goods.html?id=${datas[i].id}">${datas[i].name}</a></p>
 					 	<h5><a href="#">瓦费熊</a> <img src="../img/bottompics1.png" alt="" /></h5>`)
 				}
 			}
@@ -237,7 +238,48 @@ require(['jquery'], function($) {
 				scrollTop: 0
 			}, 1000);
 		})
+			
+			
+			
+			//获得不到元素
+		let please_btn;
+		let del_login;
+		hascookie();
+		//检查是否有cookie
+		function hascookie() {
+			let telcook = Cookie.get('tel');
+			if(telcook == undefined) {
+				return;
+			}
+			if(telcook.length > 0) {
+				setTimeout(() => {
+					let top_user = document.querySelector('#top_user');
+					please_btn = document.querySelector('#please_btn');
+					del_login = document.querySelector('#del_login');
+					console.log(telcook)
+					del_login.style.display = 'inline-block';
+					please_btn.style.display = 'none';
 
+					top_user.innerHTML = telcook;
+				}, 1000);
+			}
+		}
+
+		setTimeout(() => {
+		if(del_login == undefined) {
+				return;
+			} else {
+				del_login.onclick = () => {
+					console.log(555)
+					Cookie.remove('tel', '/');
+					console.log(666)
+					$('.EC_header').load('base_header.html');
+				}
+			}
+		}, 1000)
+	
+	
+	
+	
 	})
-
 })

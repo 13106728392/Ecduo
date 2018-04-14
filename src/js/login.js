@@ -20,7 +20,7 @@ require(['jquery', 'common'], function($) {
 		let $login_btnss = $('.login_btnss');
 		let $login_box = $('.login_box');
 		let $atuo_login = $('#atuo_login');
-
+		$('.EC_footer').load('base_footer.html');
 		checked();
 
 		function checked() {
@@ -54,6 +54,11 @@ require(['jquery', 'common'], function($) {
 							var d = new Date();
 							d.setDate(d.getDate() + 7);
 							Cookie.set('tel', tel_v, d, '/')
+							
+						}else{
+						console.log('555')
+						document.cookie = `tel=${tel_v};path=/`;
+							
 						}
 						$login_box.find('h4').text('登录成功').removeClass('false').addClass('success');
 						location.href = '../index.html';
