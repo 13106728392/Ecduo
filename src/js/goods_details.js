@@ -145,8 +145,8 @@ require(['jquery', 'zoom', 'common'], function($) {
 				alert('请选择商品添加')
 				return;
 			} else {
+				
 				allcookie(ids);
-			
 			}
 		})
 		
@@ -177,10 +177,10 @@ require(['jquery', 'zoom', 'common'], function($) {
 			let pic = $zoom_smallshow.find('img').eq(0).attr('src');
 			let price = $good_prices.children('h2').children('span').text();
 			//获得各种码数的数量
-			let xlnum = $buy_goods.find('.fn_c').children('i').eq(0).children('span').text();
-			let lnum = $buy_goods.find('.fn_c').children('i').eq(1).children('span').text();
-			let mnum = $buy_goods.find('.fn_c').children('i').eq(2).children('span').text();
-			let snum = $buy_goods.find('.fn_c').children('i').eq(3).children('span').text();
+			let xlnum = $input_num.find('input').eq(0).val();
+			let lnum = $input_num.find('input').eq(1).val();
+			let mnum = $input_num.find('input').eq(2).val();
+			let snum = $input_num.find('input').eq(3).val();
 			let colors = $choose_size.children('h3').eq(0).children('span').text();
 			let allnum = xlnum * 1 + lnum * 1 + mnum * 1 + snum * 1;
 			let guid = ids;
@@ -198,7 +198,7 @@ require(['jquery', 'zoom', 'common'], function($) {
 				goodslist[idx].mnum = mnum;
 				goodslist[idx].lnum = lnum;
 				goodslist[idx].snum = snum;
-				goodslist[idx].money = moneys;
+		
 				console.log('创建了')
 			} else {
 				if(allnum > 0) {
@@ -213,7 +213,6 @@ require(['jquery', 'zoom', 'common'], function($) {
 						mnum: mnum,
 						snum: snum,
 						color: colors,
-						money: moneys,
 						qty: allnum
 					}
 				}
@@ -333,6 +332,27 @@ require(['jquery', 'zoom', 'common'], function($) {
 			}
 
 		}, 1000)
+			
+			
+			//返回顶部效果
+		let $fixboxs = $('.fixboxs');
+		$fixboxs.on('click', function() {
+			$("html,body").animate({
+				scrollTop: 0
+			}, 1000);
+		});
+		
+		
+		function addanimate(){
+			//获得当前点击的位置
+			
+			
+		}
+		
+		
+		
+		
+	
 
 	})
 })

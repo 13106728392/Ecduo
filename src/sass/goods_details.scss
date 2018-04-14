@@ -179,7 +179,7 @@ em {
 
 //内容开始
 .top_details {
-    height: 26100px;
+    height: 26200px;
     box-sizing: border-box;
     //  border: 1px solid black;
     .goods_new {
@@ -481,19 +481,16 @@ em {
                     display: inline-block;
                     height: 50px;
                     width: 187px;
-                   bottom: 10px;
-                    right:210px;
-                    
+                    bottom: 10px;
+                    right: 210px;
                     line-height: 50px;
                     text-align: center;
-                    
                     border-radius: 6px;
                     background-color: #E52019;
                     color: white;
                     font-size: 16px;
                 }
                 #addgoods {
-                    
                     display: inline-block;
                     position: absolute;
                     bottom: 10px;
@@ -670,30 +667,13 @@ em {
             padding-left: 25px;
         }
     }
-    
-    .frsss{
-        
+    .frsss {
         position: absolute;
         top: 985px;
         width: 210px;
         height: 483px;
-        
-      background-image: url(../img/frsss.png);
+        background-image: url(../img/frsss.png);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     //吸顶
     .flat_top_box {
         height: 44px;
@@ -705,7 +685,7 @@ em {
         display: none;
         background-color: white;
         z-index: 56646;
-        a{
+        a {
             float: left;
             display: inline-block;
             padding: 0 40px;
@@ -714,7 +694,7 @@ em {
             border-right: 1px solid darkgray;
             font-weight: bold;
         }
-        span{
+        span {
             display: inline-block;
             width: 170px;
             height: 44px;
@@ -723,17 +703,33 @@ em {
             text-align: center;
             float: right;
         }
-        span:nth-of-type(1){
+        span:nth-of-type(1) {
             background-color: #FFE0DA;
             color: #B91A00;
         }
-       
-        
-        
-        
-        
     }
     .other_pic {
         width: 1000px;
     }
+ 
 }
+
+   .fixboxs {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 50px;
+    
+        border-radius: 8px;
+        a {
+            display: block;
+            height: 50px;
+            font-size: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 8px;
+           background: url(../img/tops.png) no-repeat  ;
+        }
+       
+    }

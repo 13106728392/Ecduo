@@ -73,7 +73,7 @@ require(['jquery', 'common'], function($) {
 							</div>
 							<i class="prices_i">￥${item.price}</i>
 							<i class="prices_num">${item.qty}</i>
-							<i class="prices_all">${item.money}</i>
+							<i class="prices_all">${(item.qty*1 *item.price*1).toFixed(2)}</i>
 							<a href="javascript:void(0);" class="prices_del"><img src="../img/ljt.png" /></a>
 						</li>`
 			}).join('');

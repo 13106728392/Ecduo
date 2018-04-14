@@ -528,7 +528,7 @@ em {
     bottom: 0;
     width: 50px;
     height: 50px;
-    background-color: gainsboro;
+    
     border-radius: 8px;
     a{
         display: block;
@@ -537,9 +537,7 @@ em {
         text-align: center;
         line-height: 50px;
         border-radius: 8px;
+        background: url(../img/tops.png) no-repeat  ;
     }
-    a:hover{
-        background-color: brown;
-        color: white;
-    }
+   
 }
