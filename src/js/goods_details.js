@@ -136,16 +136,24 @@ require(['jquery', 'zoom', 'common'], function($) {
 			$addto_car.find('span').eq(1).text((total * 1 * prices * 1).toFixed(2));
 			return total;
 		}
+		
+		
+		
+		
 
 		let $addcar = $('#addcar');
 		let $addgoods = $('#addgoods');
-		$addgoods.click(function() {
+		$addgoods.click(function(e) {
 			let total = gettotails();
 			if(total == 0) {
 				alert('请选择商品添加')
 				return;
 			} else {
-				
+				let imgurl= $('.zoom_smallshow').find('img').eq(0);
+				imgurl = imgurl[0].getAttribute('src')
+				let left = e.pageX;
+				let top  = e.pageY;
+				addanimate(left,top,imgurl);
 				allcookie(ids);
 			}
 		})
@@ -188,7 +196,6 @@ require(['jquery', 'zoom', 'common'], function($) {
 
 			let has = goodslist.some(function(item, i) {
 				idx = i;
-				console.log(idx)
 				return item.guid == guid
 			})
 
@@ -198,7 +205,6 @@ require(['jquery', 'zoom', 'common'], function($) {
 				goodslist[idx].mnum = mnum;
 				goodslist[idx].lnum = lnum;
 				goodslist[idx].snum = snum;
-		
 				console.log('创建了')
 			} else {
 				if(allnum > 0) {
@@ -343,10 +349,24 @@ require(['jquery', 'zoom', 'common'], function($) {
 		});
 		
 		
-		function addanimate(){
-			//获得当前点击的位置
-			
-			
+		
+			//飞入购物车
+		function addanimate(x,y,imgurl){
+			let $flygoods =$('<img/>')
+			$flygoods[0].src = imgurl;
+			$flygoods.css({
+				width:100,
+				height:100,
+				position:'absolute',
+				left:x,
+				top:y-100,
+				'border-radius':8	
+			});
+			console.log($flygoods)
+			$('body').append($flygoods);
+			$flygoods.animate({top:100,left:1100,width:20,height:20,opacity:0.5},2000,function(){
+				$flygoods.remove();
+			})
 		}
 		
 		
